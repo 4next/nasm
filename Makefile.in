@@ -281,7 +281,8 @@ PERLREQ_CLEANABLE = \
 	  macros/macros.c \
 	  asm/pptok.ph asm/directbl.c asm/directiv.h \
 	  $(WARNFILES) \
-	  version.h version.mac version.mak nsis/version.nsh
+	  version.h version.mac version.mak nsis/version.nsh \
+	  x86/insns.xda
 
 PERLREQ = $(PERLREQ_CLEANABLE)
 
@@ -457,6 +458,12 @@ install: $(PROGS)
 install_editors: $(EDITORS)
 	$(MKDIR_P) $(DESTDIR)$(pkgdatadir)
 	$(INSTALL_DATA) $(EDITORS) $(DESTDIR)$(pkgdatadir)
+
+pclean: clean
+	$(RM_F) $(PERLREQ_CLEANABLE)
+
+macclean: clean
+	$(RM_F) macros\macros.c asm\pptok.ph asm\directbl.c asm\directiv.h
 
 clean:
 	for d in . $(SUBDIRS) $(XSUBDIRS); do \

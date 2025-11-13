@@ -223,7 +223,8 @@ PERLREQ_CLEANABLE = \
 	  macros\macros.c \
 	  asm\pptok.ph asm\directbl.c asm\directiv.h \
 	  $(WARNFILES) \
-	  version.h version.mac version.mak nsis\version.nsh
+	  version.h version.mac version.mak nsis\version.nsh \
+		x86\insns.xda	x86\*.$(O)
 
 PERLREQ = $(PERLREQ_CLEANABLE)
 
@@ -384,20 +385,14 @@ nsis: nsis\nasm.nsi nsis\arch.nsh nsis\version.nsh
 #-- End NSIS Rules --#
 
 ppclean: clean
-	-del /f macros\macros.c
-	-del /f asm\tokhash.c asm\tokens.h asm\pptok.h asm\pptok.c asm\pptok.ph
-	-del /f asm\directbl.c asm\directiv.h
+	-del /f $(PERLREQ_CLEANABLE)
 
-x86clean: clean
-	-del /f x86\*.obj
-	-del /f x86\insns.xda
-	-del /f x86\iflag.c x86\iflaggen.h
-	-del /f x86\insnsb.c x86\insnsa.c x86\insnsd.c x86\insnsi.h x86\insnsn.c
-	-del /f x86\regs.c x86\regflags.c x86\regdis.c x86\regdis.h x86\regvals.c
-	-del /f x86\regs.h
+macclean: clean
+	-del /f macros\macros.c
+	-del /f asm\pptok.ph asm\directbl.c asm\directiv.h
 
 clean:
-	-del /f /s *.obj
+	-del /f /s *.$(O)
 	-del /f /s *.pdb
 	-del /f /s *.s
 	-del /f /s *.i
@@ -419,7 +414,7 @@ distclean: clean
 	-del /f output\*.bak
 	-del /f test\*.lst
 	-del /f test\*.bin
-	-del /f test\*.obj
+	-del /f test\*.$(O)
 	-del /f test\*.bin
 	-del /f/s autom4te*.cache
 

@@ -18,6 +18,6 @@ With best regards, the NASM crew.
 
 13/11/2025 - Added clean targets to Mkfiles\\msvc.mak 
 
-**x86clean** - clean up generated instructions from perl script to force reconstruct
+**ppclean** - clean up generated instructions and macros from perl script to force reconstruct
 
-**ppclean** - clean up generated default macros and pre-processor directives to force reconstruct
+**macclean** - clean up generated default macros and pre-processor directives to force reconstruct
