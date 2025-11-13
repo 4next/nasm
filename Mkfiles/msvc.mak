@@ -383,6 +383,19 @@ nsis: nsis\nasm.nsi nsis\arch.nsh nsis\version.nsh
 
 #-- End NSIS Rules --#
 
+ppclean: clean
+	-del /f macros\macros.c
+	-del /f asm\tokhash.c asm\tokens.h asm\pptok.h asm\pptok.c asm\pptok.ph
+	-del /f asm\directbl.c asm\directiv.h
+
+x86clean: clean
+	-del /f x86\*.obj
+	-del /f x86\insns.xda
+	-del /f x86\iflag.c x86\iflaggen.h
+	-del /f x86\insnsb.c x86\insnsa.c x86\insnsd.c x86\insnsi.h x86\insnsn.c
+	-del /f x86\regs.c x86\regflags.c x86\regdis.c x86\regdis.h x86\regvals.c
+	-del /f x86\regs.h
+
 clean:
 	-del /f /s *.obj
 	-del /f /s *.pdb

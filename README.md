@@ -15,3 +15,9 @@ wishing to improve their lovely assembler.
 Visit our [nasm.us](https://www.nasm.us/) website for more details.
 
 With best regards, the NASM crew.
+
+13/11/2025 - Added clean targets to Mkfiles\\msvc.mak 
+
+**x86clean** - clean up generated instructions from perl script to force reconstruct
+
+**ppclean** - clean up generated default macros and pre-processor directives to force reconstruct
