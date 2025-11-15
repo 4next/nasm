@@ -4,9 +4,14 @@
 # cross-compile on a DOS/Win32/OS2 platform host
 #
 
+
+# PATH=$(PATH);C:\watcom\binnt;C:\watcom\binnt\nt386;C:\watcom\binnt\dll
+# INCLUDE=C:\watcom\h;C:\watcom\h\nt
+# WATCOM=C:\watcom
+
 top_srcdir  = .
 srcdir      = .
-VPATH       = $(srcdir)\asm;$(srcdir)\x86;asm;x86;$(srcdir)\macros;macros;$(srcdir)\output;$(srcdir)\lib;$(srcdir)\common;$(srcdir)\stdlib;$(srcdir)\nasmlib;$(srcdir)\disasm
+VPATH       = $(srcdir)\zlib;$(srcdir)\asm;$(srcdir)\x86;asm;x86;$(srcdir)\macros;macros;$(srcdir)\output;$(srcdir)\lib;$(srcdir)\common;$(srcdir)\stdlib;$(srcdir)\nasmlib;$(srcdir)\disasm
 prefix      = C:\Program Files\NASM
 exec_prefix = $(prefix)
 bindir      = $(prefix)\bin
@@ -16,7 +21,7 @@ CC      = *wcl386
 DEBUG       =
 CFLAGS      = -zq -6 -ox -wx -wcd=124 -ze -fpi $(DEBUG)
 BUILD_CFLAGS    = $(CFLAGS) $(%TARGET_CFLAGS)
-INTERNAL_CFLAGS = -I$(srcdir) -I. -I$(srcdir)\include -I$(srcdir)\x86 -Ix86 -I$(srcdir)\asm -Iasm -I$(srcdir)\disasm -I$(srcdir)\output
+INTERNAL_CFLAGS = -I$(srcdir) -I. -I$(srcdir)\include -I$(srcdir)\x86 -Ix86 -I$(srcdir)\asm -Iasm -I$(srcdir)\disasm -I$(srcdir)\output -I$(srcdir)\zlib
 ALL_CFLAGS  = $(BUILD_CFLAGS) $(INTERNAL_CFLAGS)
 LD      = *wlink
 LDEBUG      =
@@ -82,6 +87,8 @@ ZLIBOBJ = &
 	zlib\inflate.obj &
 	zlib\inftrees.obj &
 	zlib\zutil.obj
+
+
 
 # Common library objects
 LIBOBJ_COM = &
