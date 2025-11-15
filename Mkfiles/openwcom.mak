@@ -431,7 +431,8 @@ spotless: distclean cleaner .SYMBOLIC
     rm -f doc\Makefile doc\*~ doc\*.bak
 
 strip: .SYMBOLIC
-    $(STRIP) *.exe
+    $(STRIP) nasm.exe
+    $(STRIP) ndisasm.exe
 
 doc:
 #   cd doc && $(MAKE) all
