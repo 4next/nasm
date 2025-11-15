@@ -5,7 +5,7 @@
 #
 
 
-# PATH=$(PATH);C:\watcom\binnt;C:\watcom\binnt\nt386;C:\watcom\binnt\dll
+# PATH=$(PATH);C:\watcom\binnt;C:\watcom\binnt\nt386;C:\watcom\binnt\dll;C:\watcom\binw
 # INCLUDE=C:\watcom\h;C:\watcom\h\nt
 # WATCOM=C:\watcom
 
@@ -431,8 +431,8 @@ spotless: distclean cleaner .SYMBOLIC
     rm -f doc\Makefile doc\*~ doc\*.bak
 
 strip: .SYMBOLIC
-    $(STRIP) nasm.exe
-    $(STRIP) ndisasm.exe
+    -$(STRIP) nasm.exe
+    -$(STRIP) ndisasm.exe
 
 doc:
 #   cd doc && $(MAKE) all
